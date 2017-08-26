@@ -1,0 +1,12 @@
+<resources>
+    <dimen name="Dawanda_nav_header_height">170dp</dimen>
+    <dimen name="Dawanda_detail_image_height">250dp</dimen>
+
+    <dimen name="Dawanda_Tiny_Distance">3dp</dimen>
+    <dimen name="Dawanda_Small_Distance">5dp</dimen>
+    <dimen name="Dawanda_Medium_Distance">10dp</dimen>
+
+    <dimen name="Dawanda_NavIconSize">80dp</dimen>
+    <dimen name="Dawanda_List_Image_Size">60dp</dimen>
+
+</resources>

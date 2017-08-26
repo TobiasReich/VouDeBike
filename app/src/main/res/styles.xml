@@ -7,30 +7,30 @@
         <item name="android:alpha">0.2</item>
     </style>
 
-    <style name="BikeNormalText" parent="@android:style/TextAppearance.Large">
+    <style name="DawandaNormalText" parent="@android:style/TextAppearance.Large">
         <item name="android:textSize">14sp</item>
         <item name="android:textStyle">normal</item>
         <item name="android:typeface">sans</item>
         <item name="android:textColor">@android:color/black</item>
     </style>
 
-    <style name="BikeTitleText" parent="BikeNormalText">
+    <style name="DawandaTitleText" parent="DawandaNormalText">
         <item name="android:textSize">22sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@android:color/black</item>
     </style>
 
-    <style name="BikeNavTitleText" parent="BikeTitleText">
+    <style name="DawandaNavTitleText" parent="DawandaTitleText">
         <item name="android:textColor">@android:color/white</item>
     </style>
 
-    <style name="BikeListElementTextStyle" parent="BikeTitleText">
+    <style name="DawandaListElementTextStyle" parent="DawandaTitleText">
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">normal</item>
         <item name="android:fontFamily">sans-serif-thin</item>
     </style>
 
-    <style name="BikePriceTextStyle" parent="BikeTitleText">
+    <style name="DawandaPriceTextStyle" parent="DawandaTitleText">
         <item name="android:textSize">16sp</item>
         <item name="android:fontFamily">sans-serif-thin</item>
     </style>

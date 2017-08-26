@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">VouDeBike</string>
+    <string name="app_name">Vou De Bike</string>
+
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="dayane_lima_souza">Dayane Lima Souza</string>
+
+
+    <string name="title_fragment_bikes_list">My Bikes</string>
+    <string name="title_fragment_customers_list">My customers</string>
+
+
 </resources>
