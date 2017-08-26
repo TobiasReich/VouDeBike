@@ -10,4 +10,6 @@ public interface IAppNavigation {
 
     void openClientsList();
 
+    void openBookingsList();
+
 }

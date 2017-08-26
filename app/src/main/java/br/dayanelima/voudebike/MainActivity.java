@@ -50,6 +50,10 @@ public class MainActivity extends AppCompatActivity implements IAppNavigation, N
         switchToFragment(new FragmentCustomersList());
     }
 
+    @Override
+    public void openBookingsList() {
+        // TODO: Open bookings
+    }
 
     /** Switches to a given Fragment using a side scrolling animation
      *
@@ -66,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements IAppNavigation, N
 
             fMan.executePendingTransactions();
         } catch (Exception e) {
-            Log.e(TAG, "Exception switching Fragments! ${e.message}");
+            Log.e(TAG, "Exception switching Fragments!");
         }
     }
 
@@ -76,11 +80,12 @@ public class MainActivity extends AppCompatActivity implements IAppNavigation, N
 
         if (id == R.id.nav_bikes_list)
             openBikesList();
+
         else if (id == R.id.nav_my_clients)
             openClientsList();
 
-        //TODO: show bookings
-
+        else if (id == R.id.nav_bookings)
+            openBookingsList();
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

@@ -7,9 +7,15 @@
         android:id="@+id/nav_bikes_list"
         android:icon="@drawable/ic_bike"
         android:title="my bikes" />
+
     <item
         android:id="@+id/nav_my_clients"
         android:icon="@drawable/ic_person"
         android:title="my clients" />
+
+    <item
+        android:id="@+id/nav_bookings"
+        android:icon="@drawable/ic_booking"
+        android:title="bookings" />
 
 </menu>
