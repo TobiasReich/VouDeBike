@@ -13,7 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 
-import br.dayanelima.voudebike.bike.FragmentBikeList;
+import br.dayanelima.voudebike.bikes.FragmentBikeList;
 import br.dayanelima.voudebike.customers.FragmentCustomersList;
 
 
