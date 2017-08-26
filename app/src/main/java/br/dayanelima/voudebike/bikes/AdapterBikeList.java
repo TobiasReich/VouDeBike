@@ -48,8 +48,7 @@ public class AdapterBikeList extends RecyclerView.Adapter<AdapterBikeList.ViewHo
         Bike bike = bikes.get(position);
         holder.bikeNameTV.setText(bike.name);
         holder.rootLayout.setOnClickListener(
-                view -> Log.d(TAG, "Open Detail view for this bike")
-                        //navCallback.switchToCarDetailView(car.id)
+                view -> navCallback.openBikeDetails(bike.id)
         );
         holder.descriptionTV.setText(bike.description);
     }

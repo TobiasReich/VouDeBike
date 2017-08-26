@@ -13,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 
+import br.dayanelima.voudebike.bikes.FragmentBikeDetail;
 import br.dayanelima.voudebike.bikes.FragmentBikeList;
 import br.dayanelima.voudebike.customers.FragmentCustomersList;
 
@@ -43,6 +44,11 @@ public class MainActivity extends AppCompatActivity implements IAppNavigation, N
     @Override
     public void openBikesList() {
         switchToFragment(new FragmentBikeList());
+    }
+
+    @Override
+    public void openBikeDetails(int bikeID) {
+        switchToFragment(FragmentBikeDetail.newInstance(bikeID));
     }
 
     @Override

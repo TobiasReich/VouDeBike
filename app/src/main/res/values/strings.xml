@@ -10,5 +10,8 @@
     <string name="title_fragment_bikes_list">My Bikes</string>
     <string name="title_fragment_customers_list">My customers</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 </resources>
