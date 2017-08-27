@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,12 +17,19 @@ import java.util.List;
 import br.dayanelima.voudebike.IAppNavigation;
 import br.dayanelima.voudebike.R;
 import br.dayanelima.voudebike.data.Bike;
+import br.dayanelima.voudebike.data.database.DataBaseHelper;
 
 public class FragmentBikeList extends Fragment {
+
+    private static final String TAG = FragmentBikeList.class.getSimpleName();
 
     private IAppNavigation navCallback;
 
     private AdapterBikeList bikeAdapter;
+
+    private DataBaseHelper dbHelper;
+
+    private Button addBikeButton;
 
     public FragmentBikeList() {
     }
@@ -28,6 +37,13 @@ public class FragmentBikeList extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        dbHelper = new DataBaseHelper(getActivity());
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        dbHelper.closeDB();
     }
 
     @Override
@@ -35,6 +51,19 @@ public class FragmentBikeList extends Fragment {
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_bikes, container, false);
 
+        // Button for adding a random bike.
+        // FIXME: This opens the detail view for creating a new one.
+        // This is just for showing and testing
+        addBikeButton = root.findViewById(R.id.addBikeButton);
+        addBikeButton.setOnClickListener(view -> {
+                Bike bike = new Bike();
+                bike.name = "My Bike " + Math.random();
+                dbHelper.insertBike(bike);
+                loadBikes();
+            }
+        );
+
+        // RecyclerView (List) with Bikes
         LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(getActivity());
         mLinearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
@@ -70,20 +99,8 @@ public class FragmentBikeList extends Fragment {
     }
 
     private void loadBikes() {
-        List<Bike> bikes = new ArrayList<>();
-        bikes.add(new Bike());
-        bikes.add(new Bike());
-        bikes.add(new Bike());
-        bikes.add(new Bike());
-        bikes.add(new Bike());
-        bikes.add(new Bike());
-        bikes.add(new Bike());
-        bikes.add(new Bike());
-        bikes.add(new Bike());
-        bikes.add(new Bike());
-        bikes.add(new Bike());
-        bikes.add(new Bike());
-        bikes.add(new Bike());
+        List<Bike> bikes = dbHelper.getAllBikes(false);
+        Log.i(TAG, "Bikes loaded: " + bikes.size());
         bikeAdapter.setBikes(bikes);
     }
 

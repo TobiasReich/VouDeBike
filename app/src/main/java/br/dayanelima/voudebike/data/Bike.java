@@ -7,5 +7,14 @@ public class Bike {
     public String description = "This is my bike";
     public String type = "A bike for kids";
     public String color = "Red";
+    // Price per day in "local currency" €, $, ...
+    public int price = 100;
 
+    @Override
+    public String toString() {
+        return "Bike{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

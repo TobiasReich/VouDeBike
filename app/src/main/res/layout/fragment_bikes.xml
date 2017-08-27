@@ -1,23 +1,23 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="br.dayanelima.voudebike.bikes.FragmentBikeList">
 
-    <android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/swipeContainer"
+
+    <Button
+        android:id="@+id/addBikeButton"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:text="@string/view_add_bike" />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/bikeListRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/Bike_Medium_Distance"
-            android:divider="@null" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/bikeListRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/Bike_Medium_Distance"
+        android:divider="@null" />
 
-    </android.support.v4.widget.SwipeRefreshLayout>
-
-
-
-</FrameLayout>
+</LinearLayout>
