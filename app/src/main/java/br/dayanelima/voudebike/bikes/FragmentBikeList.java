@@ -38,12 +38,14 @@ public class FragmentBikeList extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         dbHelper = new DataBaseHelper(getActivity());
+        Log.d(TAG, "On Create");
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
+    public void onStop() {
+        super.onStop();
         dbHelper.closeDB();
+        Log.d(TAG, "On Stop");
     }
 
     @Override

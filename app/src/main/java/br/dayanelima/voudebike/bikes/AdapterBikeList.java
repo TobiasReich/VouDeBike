@@ -1,7 +1,6 @@
 package br.dayanelima.voudebike.bikes;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +13,6 @@ import java.util.List;
 import br.dayanelima.voudebike.IAppNavigation;
 import br.dayanelima.voudebike.R;
 import br.dayanelima.voudebike.data.Bike;
-
-import static android.content.ContentValues.TAG;
 
 
 /** Adapter for the car list recycler view */
@@ -48,7 +45,7 @@ public class AdapterBikeList extends RecyclerView.Adapter<AdapterBikeList.ViewHo
         Bike bike = bikes.get(position);
         holder.bikeNameTV.setText(bike.name);
         holder.rootLayout.setOnClickListener(
-                view -> navCallback.openBikeDetails(bike.id)
+            view -> navCallback.openBikeDetails(bike.id)
         );
         holder.descriptionTV.setText(bike.description);
     }

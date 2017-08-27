@@ -39,8 +39,8 @@ public class MainActivity extends AppCompatActivity implements IAppNavigation, N
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
     }
+
     @Override
     public void openBikesList() {
         switchToFragment(new FragmentBikeList());

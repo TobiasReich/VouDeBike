@@ -24,7 +24,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     // Database Name
-    public static final String DATABASE_NAME = "HealthTracker.db";
+    public static final String DATABASE_NAME = "VouDeBike.db";
 
     // Table Names
     private static final String TABLE_BIKES = "bike";
@@ -40,15 +40,13 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private static final String KEY_BIKE_TYPE = "type";
     private static final String KEY_BIKE_PRICE = "price";
 
-
     // Table Create Statements
-    // Medicine table create statement
     private static final String CREATE_TABLE_BIKES
             = "CREATE TABLE " + TABLE_BIKES + " ("
             + KEY_ID + " INTEGER PRIMARY KEY,"
             + KEY_BIKE_NAME + " TEXT,"
             + KEY_BIKE_DESCRIPTION + " TEXT,"
-            + KEY_BIKE_TYPE + " INTEGER,"
+            + KEY_BIKE_TYPE + " TEXT,"
             + KEY_BIKE_PRICE + " INTEGER)";
 
 
@@ -81,13 +79,13 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     // closing database
     public void closeDB() {
-        SQLiteDatabase db = this.getReadableDatabase();
+        //SQLiteDatabase db = this.getReadableDatabase();
         if (db != null && db.isOpen())
             db.close();
     }
 
 
-    /* ---------------------- END OF BIKES ---------------------- */
+    /* ---------------------- BIKES ---------------------- */
 
     /** Write a Bike object to the database
      *
@@ -105,7 +103,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         long row = db.insert(TABLE_BIKES, null, values);
 
-        Log.i(TAG, "Adding medicine to database: " + bike + " @column: " + row);
+        Log.i(TAG, "Adding bike to database: " + bike + " @column: " + row);
 
         return row;
     }
@@ -119,7 +117,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public Bike getBike(long bikeID) {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        String selectQuery = "SELECT  * FROM " + TABLE_BIKES + " WHERE " + KEY_ID + " = " + bikeID;
+        String selectQuery = "SELECT * FROM " + TABLE_BIKES + " WHERE " + KEY_ID + " = " + bikeID;
 
         Log.e(TAG, selectQuery);
 
@@ -131,6 +129,13 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return getBikeFromCursor(c);
     }
 
+
+    /**
+     * | ID | NAME | DESC | TYPE | PRICE |
+     *
+     * @param c
+     * @return
+     */
     private Bike getBikeFromCursor(Cursor c) {
         Bike bike = new Bike();
         bike.id = c.getInt(c.getColumnIndex(KEY_ID));
@@ -143,6 +148,13 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
     /** getting all bikes
+     *
+     * | ID | NAME | DESC | TYPE | PRICE |
+     * | ID | NAME | DESC | TYPE | PRICE |
+     * | ID | NAME | DESC | TYPE | PRICE |
+     * | ID | NAME | DESC | TYPE | PRICE |
+     * | ID | NAME | DESC | TYPE | PRICE |
+     *
      *
      * @return List of bikes */
     public List<Bike> getAllBikes(boolean orderByName) {
@@ -186,7 +198,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         values.put(KEY_BIKE_PRICE, bike.price);
 
         // updating row
-        return db.update(TABLE_BIKES, values, KEY_ID + " = ?", new String[] { String.valueOf(bike.id) });
+        return db.update(TABLE_BIKES, values,
+                KEY_ID + " = ?",
+                new String[] { String.valueOf(bike.id)});
     }
 
     /** Delete a bike from the list

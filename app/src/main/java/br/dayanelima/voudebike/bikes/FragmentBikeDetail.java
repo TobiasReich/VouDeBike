@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import br.dayanelima.voudebike.IAppNavigation;
 import br.dayanelima.voudebike.R;
+import br.dayanelima.voudebike.data.Bike;
+import br.dayanelima.voudebike.data.database.DataBaseHelper;
 
 
 public class FragmentBikeDetail extends Fragment {
@@ -36,6 +38,7 @@ public class FragmentBikeDetail extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             bikeID = getArguments().getInt(ARGUMENT_BIKE_ID);
         }
@@ -45,8 +48,11 @@ public class FragmentBikeDetail extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_bike_detail, container, false);
 
+        DataBaseHelper dbHelper = new DataBaseHelper(getActivity());
+        Bike bike = dbHelper.getBike(bikeID);
+
         TextView titleTV = root.findViewById(R.id.titleTV);
-        titleTV.setText("Bike " + bikeID);
+        titleTV.setText(bike.name);
         return root;
     }
 
