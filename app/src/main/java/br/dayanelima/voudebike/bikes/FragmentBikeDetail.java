@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import br.dayanelima.voudebike.IAppNavigation;
 import br.dayanelima.voudebike.R;
@@ -42,7 +43,11 @@ public class FragmentBikeDetail extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_bike_detail, container, false);
+        View root = inflater.inflate(R.layout.fragment_bike_detail, container, false);
+
+        TextView titleTV = root.findViewById(R.id.titleTV);
+        titleTV.setText("Bike " + bikeID);
+        return root;
     }
 
     @Override
