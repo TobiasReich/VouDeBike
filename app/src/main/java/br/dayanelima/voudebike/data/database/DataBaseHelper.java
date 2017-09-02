@@ -49,13 +49,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             + KEY_BIKE_TYPE + " TEXT,"
             + KEY_BIKE_PRICE + " INTEGER)";
 
-
-    public SQLiteDatabase db;
-
     public DataBaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         Log.d(TAG, "DataBaseHelper -> Constructor");
-        db = getWritableDatabase();
     }
 
     @Override
@@ -78,7 +74,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
     // closing database
-    public void closeDB() {
+    public void closeDB(SQLiteDatabase db) {
         //SQLiteDatabase db = this.getReadableDatabase();
         if (db != null && db.isOpen())
             db.close();
@@ -105,6 +101,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         Log.i(TAG, "Adding bike to database: " + bike + " @column: " + row);
 
+        closeDB(db);
+
         return row;
     }
 
@@ -119,14 +117,16 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         String selectQuery = "SELECT * FROM " + TABLE_BIKES + " WHERE " + KEY_ID + " = " + bikeID;
 
-        Log.e(TAG, selectQuery);
-
         Cursor c = db.rawQuery(selectQuery, null);
 
         if (c != null)
             c.moveToFirst();
 
-        return getBikeFromCursor(c);
+        Bike bike = getBikeFromCursor(c);
+
+        closeDB(db);
+
+        return bike;
     }
 
 
@@ -181,6 +181,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             } while (c.moveToNext());
         }
 
+        closeDB(db);
+
         return bikesList;
     }
 
@@ -191,6 +193,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
      * @return int id of the row that was updated
      */
     public int updateBike(Bike bike) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
         ContentValues values = new ContentValues();
         values.put(KEY_BIKE_NAME, bike.name);
         values.put(KEY_BIKE_DESCRIPTION, bike.description);
@@ -198,9 +202,13 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         values.put(KEY_BIKE_PRICE, bike.price);
 
         // updating row
-        return db.update(TABLE_BIKES, values,
+        int row = db.update(TABLE_BIKES, values,
                 KEY_ID + " = ?",
                 new String[] { String.valueOf(bike.id)});
+
+        closeDB(db);
+
+        return row;
     }
 
     /** Delete a bike from the list
@@ -209,6 +217,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public void deleteBikeFromList(long id) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_BIKES, KEY_ID + " = ?", new String[] { String.valueOf(id) });
+        closeDB(db);
     }
 
 

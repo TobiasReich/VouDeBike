@@ -44,7 +44,7 @@ public class FragmentBikeList extends Fragment {
     @Override
     public void onStop() {
         super.onStop();
-        dbHelper.closeDB();
+        //dbHelper.closeDB();
         Log.d(TAG, "On Stop");
     }
 
