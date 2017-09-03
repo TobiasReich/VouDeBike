@@ -74,7 +74,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     }
 
     // closing database
-    public void closeDB(SQLiteDatabase db) {
+    private void closeDB(SQLiteDatabase db) {
         //SQLiteDatabase db = this.getReadableDatabase();
         if (db != null && db.isOpen())
             db.close();
@@ -88,7 +88,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
      * @param bike
      * @return long the row id inserted
      */
-    public long insertBike(Bike bike) {
+    public void insertBike(Bike bike, IDataBaseWriteCallback  callback) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -103,7 +103,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         closeDB(db);
 
-        return row;
+        if (callback != null)
+            callback.dataWritten(row != -1);
     }
 
     /** get single Bike from the database.
@@ -138,12 +139,15 @@ public class DataBaseHelper extends SQLiteOpenHelper {
      */
     private Bike getBikeFromCursor(Cursor c) {
         Bike bike = new Bike();
-        bike.id = c.getInt(c.getColumnIndex(KEY_ID));
-        bike.name = c.getString(c.getColumnIndex(KEY_BIKE_NAME));
-        bike.description = c.getString(c.getColumnIndex(KEY_BIKE_DESCRIPTION));
-        bike.type = c.getString(c.getColumnIndex(KEY_BIKE_TYPE));
-        bike.price = c.getInt(c.getColumnIndex(KEY_BIKE_PRICE));
-
+        try {
+            bike.id = c.getInt(c.getColumnIndex(KEY_ID));
+            bike.name = c.getString(c.getColumnIndex(KEY_BIKE_NAME));
+            bike.description = c.getString(c.getColumnIndex(KEY_BIKE_DESCRIPTION));
+            bike.type = c.getString(c.getColumnIndex(KEY_BIKE_TYPE));
+            bike.price = c.getInt(c.getColumnIndex(KEY_BIKE_PRICE));
+        } catch (Exception e) {
+            Log.d(TAG, "Error getting Bike from Database");
+        }
         return bike;
     }
 
@@ -192,7 +196,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
      * @param bike
      * @return int id of the row that was updated
      */
-    public int updateBike(Bike bike) {
+    public void updateBike(Bike bike, IDataBaseWriteCallback  callback) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -208,7 +212,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         closeDB(db);
 
-        return row;
+        if (callback != null)
+            callback.dataWritten(row != -1);
     }
 
     /** Delete a bike from the list

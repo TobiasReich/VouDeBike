@@ -2,13 +2,15 @@ package br.dayanelima.voudebike.data;
 
 public class Bike {
 
-    public int id = 1;
-    public String name = "My bike";
-    public String description = "This is my bike";
-    public String type = "A bike for kids";
-    public String color = "Red";
+    public static final int UNSET_ID = -1;
+
+    public int id = UNSET_ID;
+    public String name = "";
+    public String description = "";
+    public String type = "";
+    public String color = "";
     // Price per day in "local currency" €, $, ...
-    public int price = 100;
+    public int price = 0;
 
     @Override
     public String toString() {

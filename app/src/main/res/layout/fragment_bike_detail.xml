@@ -3,70 +3,154 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="@dimen/Bike_Medium_Distance"
     tools:context="br.dayanelima.voudebike.bikes.FragmentBikeDetail">
 
-
-    <TextView
-        android:id="@+id/nameTV"
-        style="@style/BikeTitleText"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/showLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="TextView" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/Bike_Medium_Distance"
+        android:visibility="gone">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/Bike_detail_image_height"
-        android:src="@drawable/ic_bike" />
+        <TextView
+            android:id="@+id/nameTV"
+            style="@style/BikeTitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="" />
 
-    <TextView
-        style="@style/BikeListElementTextStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/Bike_Medium_Distance"
-        android:text="@string/view_bike_description" />
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/Bike_detail_image_height"
+            android:src="@drawable/ic_bike" />
 
-    <TextView
-        android:id="@+id/descriptionTV"
-        style="@style/BikeNormalText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <TextView
+            style="@style/BikeListElementTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/Bike_Medium_Distance"
+            android:text="@string/view_bike_description" />
 
-    <TextView
-        style="@style/BikeListElementTextStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/Bike_Medium_Distance"
-        android:text="@string/view_bike_type" />
+        <TextView
+            android:id="@+id/descriptionTV"
+            style="@style/BikeNormalText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    <TextView
-        android:id="@+id/typeTV"
-        style="@style/BikeNormalText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <TextView
+            style="@style/BikeListElementTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/Bike_Medium_Distance"
+            android:text="@string/view_bike_type" />
 
-    <TextView
-        style="@style/BikeListElementTextStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/Bike_Medium_Distance"
-        android:text="@string/view_bike_color" />
+        <TextView
+            android:id="@+id/typeTV"
+            style="@style/BikeNormalText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    <TextView
-        android:id="@+id/colorTV"
-        style="@style/BikeNormalText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <TextView
+            style="@style/BikeListElementTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/Bike_Medium_Distance"
+            android:text="@string/view_bike_color" />
 
-    <Button
-        android:id="@+id/editBikeButton"
-        style="@style/Base.Widget.AppCompat.Button.Colored"
+        <TextView
+            android:id="@+id/colorTV"
+            style="@style/BikeNormalText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/editBikeButton"
+            style="@style/Base.Widget.AppCompat.Button.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/Bike_Medium_Distance"
+            android:drawableStart="@drawable/ic_edit_white"
+            android:text="@string/view_button_edit_bike" />
+
+    </LinearLayout>
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/editLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/Bike_Medium_Distance"
-        android:drawableStart="@drawable/ic_edit_white"
-        android:text="@string/view_button_edit_bike" />
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="vertical"
+        android:padding="@dimen/Bike_Medium_Distance">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/nameET"
+                style="@style/BikeNormalText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/view_bike_name" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/descriptionET"
+                style="@style/BikeNormalText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/view_bike_description" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/typeET"
+                style="@style/BikeNormalText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/view_bike_type" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/colorET"
+                style="@style/BikeNormalText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/view_bike_color" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/saveBikeButton"
+            style="@style/Base.Widget.AppCompat.Button.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/Bike_Medium_Distance"
+            android:drawableStart="@drawable/ic_edit_white"
+            android:text="@string/view_button_save_bike" />
+
+    </LinearLayout>
 
 </LinearLayout>

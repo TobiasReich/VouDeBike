@@ -63,7 +63,7 @@ public class FragmentBikeList extends Fragment {
                 bike.description = "This is my bike";
                 bike.type = "Great bike!";
                 bike.color = "Red!";
-                dbHelper.insertBike(bike);
+                dbHelper.insertBike(bike, null);
                 loadBikes();
             }
         );
