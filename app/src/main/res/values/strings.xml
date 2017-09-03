@@ -17,6 +17,7 @@
     <string name="view_bike_description">Description:</string>
     <string name="view_bike_type">Type:</string>
     <string name="view_bike_color">Color:</string>
+    <string name="view_button_edit_bike">Edit Bike</string>
 
     <!-- Booking List -->
 

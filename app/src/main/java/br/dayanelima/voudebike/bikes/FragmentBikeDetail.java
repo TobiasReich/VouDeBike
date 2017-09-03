@@ -7,7 +7,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import br.dayanelima.voudebike.IAppNavigation;
 import br.dayanelima.voudebike.R;
@@ -63,7 +65,10 @@ public class FragmentBikeDetail extends Fragment {
         TextView colorTV = root.findViewById(R.id.colorTV);
         colorTV.setText(bike.color);
 
-
+        Button editBikeButton = root.findViewById(R.id.editBikeButton);
+        editBikeButton.setOnClickListener(view ->
+                Toast.makeText(getContext(), "Click", Toast.LENGTH_LONG).show()
+        );
         return root;
     }
 
