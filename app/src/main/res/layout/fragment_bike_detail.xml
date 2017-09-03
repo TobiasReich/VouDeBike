@@ -3,11 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="@dimen/Bike_Medium_Distance"
     tools:context="br.dayanelima.voudebike.bikes.FragmentBikeDetail">
 
 
     <TextView
-        android:id="@+id/titleTV"
+        android:id="@+id/nameTV"
         style="@style/BikeTitleText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,7 +18,46 @@
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_height="@dimen/Bike_detail_image_height"
         android:src="@drawable/ic_bike" />
+
+    <TextView
+        style="@style/BikeListElementTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/Bike_Medium_Distance"
+        android:text="@string/view_bike_description" />
+
+    <TextView
+        android:id="@+id/descriptionTV"
+        style="@style/BikeNormalText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        style="@style/BikeListElementTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/Bike_Medium_Distance"
+        android:text="@string/view_bike_type" />
+
+    <TextView
+        android:id="@+id/typeTV"
+        style="@style/BikeNormalText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        style="@style/BikeListElementTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/Bike_Medium_Distance"
+        android:text="@string/view_bike_color" />
+
+    <TextView
+        android:id="@+id/colorTV"
+        style="@style/BikeNormalText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
 </LinearLayout>

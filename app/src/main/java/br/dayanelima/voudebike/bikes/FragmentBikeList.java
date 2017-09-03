@@ -59,7 +59,10 @@ public class FragmentBikeList extends Fragment {
         addBikeButton = root.findViewById(R.id.addBikeButton);
         addBikeButton.setOnClickListener(view -> {
                 Bike bike = new Bike();
-                bike.name = "My Bike " + Math.random();
+                bike.name = "Bike " + Math.random();
+                bike.description = "This is my bike";
+                bike.type = "Great bike!";
+                bike.color = "Red!";
                 dbHelper.insertBike(bike);
                 loadBikes();
             }

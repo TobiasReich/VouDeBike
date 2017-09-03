@@ -51,8 +51,19 @@ public class FragmentBikeDetail extends Fragment {
         DataBaseHelper dbHelper = new DataBaseHelper(getActivity());
         Bike bike = dbHelper.getBike(bikeID);
 
-        TextView titleTV = root.findViewById(R.id.titleTV);
-        titleTV.setText(bike.name);
+        TextView nameTV = root.findViewById(R.id.nameTV);
+        nameTV.setText(bike.name);
+
+        TextView descriptionTV = root.findViewById(R.id.descriptionTV);
+        descriptionTV.setText(bike.description);
+
+        TextView typeTV = root.findViewById(R.id.typeTV);
+        typeTV.setText(bike.type);
+
+        TextView colorTV = root.findViewById(R.id.colorTV);
+        colorTV.setText(bike.color);
+
+
         return root;
     }
 

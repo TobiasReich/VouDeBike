@@ -14,6 +14,9 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="view_bike_description">Description:</string>
+    <string name="view_bike_type">Type:</string>
+    <string name="view_bike_color">Color:</string>
 
     <!-- Booking List -->
 
