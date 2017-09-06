@@ -13,5 +13,11 @@ public class Client {
     public String email = "bob@bobson.com";
     public String address = "Berlin";
 
-
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }
