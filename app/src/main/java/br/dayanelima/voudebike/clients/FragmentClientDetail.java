@@ -75,8 +75,6 @@ public class FragmentClientDetail extends Fragment {
         TextView clientAddressTV = root.findViewById(R.id.clientAddressTV);
         clientAddressTV.setText(client.address);
 
-
-
         return root;
     }
 

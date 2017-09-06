@@ -29,8 +29,6 @@ public class FragmentBikeList extends Fragment {
 
     private DataBaseHelper dbHelper;
 
-    private Button addBikeButton;
-
     public FragmentBikeList() {
     }
 
@@ -56,7 +54,7 @@ public class FragmentBikeList extends Fragment {
         // Button for adding a random bike.
         // FIXME: This opens the detail view for creating a new one.
         // This is just for showing and testing
-        addBikeButton = root.findViewById(R.id.addBikeButton);
+        Button addBikeButton = root.findViewById(R.id.addBikeButton);
         addBikeButton.setOnClickListener(view -> {
                 Bike bike = new Bike();
                 bike.name = "Bike " + Math.random();
