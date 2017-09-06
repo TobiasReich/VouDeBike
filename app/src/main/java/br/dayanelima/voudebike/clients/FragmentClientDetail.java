@@ -65,8 +65,21 @@ public class FragmentClientDetail extends Fragment {
 
         TextView clientNameTV = root.findViewById(R.id.clientNameTV);
         clientNameTV.setText(client.name);
+
+        TextView clientPhoneTV = root.findViewById(R.id.clientPhoneTV);
+        clientPhoneTV.setText(client.phone);
+
+        TextView clientEmailTV = root.findViewById(R.id.clientEmailTV);
+        clientEmailTV.setText(client.email);
+
+        TextView clientAddressTV = root.findViewById(R.id.clientAddressTV);
+        clientAddressTV.setText(client.address);
+
+
+
         return root;
     }
+
 
     @Override
     public void onResume() {

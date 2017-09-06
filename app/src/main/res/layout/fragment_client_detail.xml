@@ -1,4 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,14 +10,71 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="@dimen/Bike_Small_Distance">
+
+        <TextView
+            style="@style/BikeListElementTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/view_client_name" />
 
         <TextView
             android:id="@+id/clientNameTV"
             style="@style/BikeNormalText"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment" />
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/Bike_Medium_Distance"
+            android:text="TextView" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher_round" />
+
+        <TextView
+            style="@style/BikeListElementTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/view_client_phone" />
+
+        <TextView
+            android:id="@+id/clientPhoneTV"
+            style="@style/BikeNormalText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/Bike_Medium_Distance"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/emailView"
+            style="@style/BikeListElementTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/view_client_email" />
+
+        <TextView
+            android:id="@+id/clientEmailTV"
+            style="@style/BikeNormalText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/Bike_Medium_Distance"
+            android:text="TextView" />
+
+        <TextView
+            style="@style/BikeListElementTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/view_clients_address" />
+
+        <TextView
+            android:id="@+id/clientAddressTV"
+            style="@style/BikeNormalText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
 
     </LinearLayout>
 

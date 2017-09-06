@@ -266,10 +266,13 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(KEY_CLIENT_NAME, client.name);
+        values.put(KEY_CLIENT_PHONE, client.phone);
+        values.put(KEY_CLIENT_EMAIL, client.email);
+        values.put(KEY_CLIENT_ADDRESS, client.address);
 
         long row = db.insert(TABLE_CLIENTS, null, values);
 
-        Log.i(TAG, "Adding client to database: " + client + " @column: " + row);
+        Log.i(TAG, "Adding client to database: " + client + " @row: " + row);
 
         closeDB(db);
 
