@@ -15,7 +15,8 @@ import android.view.MenuItem;
 
 import br.dayanelima.voudebike.bikes.FragmentBikeDetail;
 import br.dayanelima.voudebike.bikes.FragmentBikeList;
-import br.dayanelima.voudebike.customers.FragmentCustomersList;
+import br.dayanelima.voudebike.clients.FragmentClientDetail;
+import br.dayanelima.voudebike.clients.FragmentClientsList;
 
 
 public class MainActivity extends AppCompatActivity implements IAppNavigation, NavigationView.OnNavigationItemSelectedListener {
@@ -53,7 +54,12 @@ public class MainActivity extends AppCompatActivity implements IAppNavigation, N
 
     @Override
     public void openClientsList() {
-        switchToFragment(new FragmentCustomersList());
+        switchToFragment(new FragmentClientsList());
+    }
+
+    @Override
+    public void openClientDetails(int id) {
+        switchToFragment(FragmentClientDetail.newInstance(id));
     }
 
     @Override

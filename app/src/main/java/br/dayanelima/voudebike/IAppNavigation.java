@@ -8,6 +8,7 @@ public interface IAppNavigation {
 
     void openClientsList();
 
-    void openBookingsList();
+    void openClientDetails(int id);
 
+    void openBookingsList();
 }

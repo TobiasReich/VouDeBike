@@ -45,10 +45,9 @@ public class AdapterClientList extends RecyclerView.Adapter<AdapterClientList.Vi
     private void fillViewElements(int position, ViewHolder holder) {
         Client client = clients.get(position);
         holder.clientNameTV.setText(client.name);
-        /*holder.rootLayout.setOnClickListener(
-            view -> navCallback.openBikeDetails(bike.id)
+        holder.rootLayout.setOnClickListener(
+            view -> navCallback.openClientDetails(client.id)
         );
-        holder.descriptionTV.setText(bike.description);*/
     }
 
     @Override
