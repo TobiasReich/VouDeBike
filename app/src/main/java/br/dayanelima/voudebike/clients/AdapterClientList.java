@@ -1,4 +1,4 @@
-package br.dayanelima.voudebike.customers;
+package br.dayanelima.voudebike.clients;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,7 +12,6 @@ import java.util.List;
 
 import br.dayanelima.voudebike.IAppNavigation;
 import br.dayanelima.voudebike.R;
-import br.dayanelima.voudebike.data.Bike;
 import br.dayanelima.voudebike.data.Client;
 
 
