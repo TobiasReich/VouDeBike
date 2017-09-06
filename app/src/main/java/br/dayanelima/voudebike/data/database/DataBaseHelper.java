@@ -39,6 +39,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private static final String KEY_BIKE_DESCRIPTION = "description";
     private static final String KEY_BIKE_TYPE = "type";
     private static final String KEY_BIKE_PRICE = "price";
+    private static final String KEY_BIKE_COLOUR = "colour";
 
     // Table Create Statements
     private static final String CREATE_TABLE_BIKES
@@ -47,6 +48,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             + KEY_BIKE_NAME + " TEXT,"
             + KEY_BIKE_DESCRIPTION + " TEXT,"
             + KEY_BIKE_TYPE + " TEXT,"
+            + KEY_BIKE_COLOUR + " TEXT,"
             + KEY_BIKE_PRICE + " INTEGER)";
 
     public DataBaseHelper(Context context) {
@@ -68,7 +70,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_BIKES);
         //db.execSQL("DROP TABLE IF EXISTS " + TABLE_CUSTOMERS);
         //db.execSQL("DROP TABLE IF EXISTS " + TABLE_BOOKINGS);
-
+        Log.d(TAG, "Update database from " + oldVersion + " to " + newVersion);
         // create new tables
         onCreate(db);
     }
@@ -96,6 +98,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         values.put(KEY_BIKE_DESCRIPTION, bike.description);
         values.put(KEY_BIKE_TYPE, bike.type);
         values.put(KEY_BIKE_PRICE, bike.price);
+        values.put(KEY_BIKE_COLOUR, bike.color);
 
         long row = db.insert(TABLE_BIKES, null, values);
 
@@ -145,6 +148,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             bike.description = c.getString(c.getColumnIndex(KEY_BIKE_DESCRIPTION));
             bike.type = c.getString(c.getColumnIndex(KEY_BIKE_TYPE));
             bike.price = c.getInt(c.getColumnIndex(KEY_BIKE_PRICE));
+            bike.color = c.getString(c.getColumnIndex(KEY_BIKE_COLOUR));
         } catch (Exception e) {
             Log.d(TAG, "Error getting Bike from Database");
         }
@@ -204,6 +208,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         values.put(KEY_BIKE_DESCRIPTION, bike.description);
         values.put(KEY_BIKE_TYPE, bike.type);
         values.put(KEY_BIKE_PRICE, bike.price);
+        values.put(KEY_BIKE_COLOUR, bike.color);
 
         // updating row
         int row = db.update(TABLE_BIKES, values,
