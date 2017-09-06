@@ -9,11 +9,9 @@
     <string name="title_fragment_bikes_list">My Bikes</string>
     <string name="view_add_bike">Add (random) Bike</string>
 
-    <!-- Customers list -->
+    <!-- Client list list -->
     <string name="title_fragment_customers_list">My customers</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="view_bike_description">Description:</string>
     <string name="view_bike_type">Type:</string>
     <string name="view_bike_color">Color:</string>
@@ -23,6 +21,12 @@
     <string name="toast_error_bike_no_data">Error. Please enter the data for your bike!</string>
     <string name="toast_bike_data_written">Data successfully written!</string>
     <string name="toast_error_bike_data_not_written">Error: Data not written to database</string>
+
+    <!-- Client Details -->
+    <string name="view_client_name">Name:</string>
+    <string name="view_client_phone">Phone:</string>
+    <string name="view_client_email">E-Mail:</string>
+    <string name="view_clients_address">Address:</string>
 
     <!-- Booking List -->
 
