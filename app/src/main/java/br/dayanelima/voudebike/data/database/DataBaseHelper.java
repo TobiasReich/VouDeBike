@@ -22,7 +22,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
 
     // Database Version
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
 
     // Database Name
     public static final String DATABASE_NAME = "VouDeBike.db";
@@ -44,6 +44,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
 
     private static final String KEY_CLIENT_NAME = "name";
+    private static final String KEY_CLIENT_PHONE = "phone";
+    private static final String KEY_CLIENT_EMAIL = "email";
+    private static final String KEY_CLIENT_ADDRESS = "address";
+
 
     // Table Create Statements
     private static final String CREATE_TABLE_BIKES
@@ -59,7 +63,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private static final String CREATE_TABLE_CLIENT
             = "CREATE TABLE " + TABLE_CLIENTS + " ("
             + KEY_ID + " INTEGER PRIMARY KEY,"
-            + KEY_CLIENT_NAME + " TEXT)";
+            + KEY_CLIENT_NAME + " TEXT, "
+            + KEY_CLIENT_PHONE + " TEXT,"
+            + KEY_CLIENT_EMAIL + " TEXT, "
+            + KEY_CLIENT_ADDRESS + " TEXT)";
 
 
 
@@ -305,9 +312,13 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         try {
             client.id = c.getInt(c.getColumnIndex(KEY_ID));
             client.name = c.getString(c.getColumnIndex(KEY_CLIENT_NAME));
+            client.phone = c.getString(c.getColumnIndex(KEY_CLIENT_PHONE));
+            client.email = c.getString(c.getColumnIndex(KEY_CLIENT_EMAIL));
+            client.address = c.getString(c.getColumnIndex(KEY_CLIENT_ADDRESS));
+
 
         } catch (Exception e) {
-            Log.d(TAG, "Error getting Bike from Database");
+            Log.d(TAG, "Error getting Client from Database");
         }
         return client;
     }
@@ -362,6 +373,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(KEY_CLIENT_NAME, client.name);
+        values.put(KEY_CLIENT_PHONE, client.phone);
+        values.put(KEY_CLIENT_EMAIL, client.email);
+        values.put(KEY_CLIENT_ADDRESS, client.address);
 
 
         // updating row
