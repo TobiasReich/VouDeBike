@@ -86,7 +86,8 @@
         android:layout_height="match_parent"
         android:background="@color/colorPrimaryDark"
         android:orientation="vertical"
-        android:padding="@dimen/Bike_Medium_Distance">
+        android:padding="@dimen/Bike_Medium_Distance"
+        android:visibility="visible">
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"

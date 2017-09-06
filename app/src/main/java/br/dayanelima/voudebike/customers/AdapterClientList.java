@@ -1,4 +1,4 @@
-package br.dayanelima.voudebike.bikes;
+package br.dayanelima.voudebike.customers;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,23 +13,24 @@ import java.util.List;
 import br.dayanelima.voudebike.IAppNavigation;
 import br.dayanelima.voudebike.R;
 import br.dayanelima.voudebike.data.Bike;
-
+import br.dayanelima.voudebike.data.Client;
 
 
 /** Adapter for the car list recycler view */
-public class AdapterBikeList extends RecyclerView.Adapter<AdapterBikeList.ViewHolder> {
+public class AdapterClientList extends RecyclerView.Adapter<AdapterClientList.ViewHolder> {
 
     private final IAppNavigation navCallback;
-    private final List<Bike> bikes;             // The messages to show
+    private final List<Client> clients;             // The messages to show
 
-    public AdapterBikeList(IAppNavigation navCallback) {
+    public AdapterClientList(IAppNavigation navCallback) {
         this.navCallback = navCallback;
-        this.bikes = new ArrayList<>();
+        this.clients = new ArrayList<>();
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.bike_list_item, parent, false));
+        return new ViewHolder(LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.client_list_item, parent, false));
     }
 
     @Override
@@ -43,12 +44,12 @@ public class AdapterBikeList extends RecyclerView.Adapter<AdapterBikeList.ViewHo
      * @param holder ViewHolder to fill
      */
     private void fillViewElements(int position, ViewHolder holder) {
-        Bike bike = bikes.get(position);
-        holder.bikeNameTV.setText(bike.name);
-        holder.rootLayout.setOnClickListener(
+        Client client = clients.get(position);
+        holder.clientNameTV.setText(client.name);
+        /*holder.rootLayout.setOnClickListener(
             view -> navCallback.openBikeDetails(bike.id)
         );
-        holder.descriptionTV.setText(bike.description);
+        holder.descriptionTV.setText(bike.description);*/
     }
 
     @Override
@@ -58,28 +59,30 @@ public class AdapterBikeList extends RecyclerView.Adapter<AdapterBikeList.ViewHo
 
     @Override
     public int getItemCount() {
-        return bikes.size();
+        return clients.size();
     }
 
-    void setBikes(List<Bike> bikes) {
-        this.bikes.clear();
-        this.bikes.addAll(bikes);
+    void setBikes(List<Client> clients) {
+        this.clients.clear();
+        this.clients.addAll(clients);
         this.notifyDataSetChanged();
     }
+
+
 
     /* ------------------------------- VIEW_HOLDER ----------------------------------- */
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
         final LinearLayout rootLayout;
-        final TextView bikeNameTV;
-        final TextView descriptionTV;
+        final TextView clientNameTV;
+        //final TextView descriptionTV;
 
         ViewHolder(View view) {
             super(view);
             rootLayout = view.findViewById(R.id.rootLayout);
-            bikeNameTV = view.findViewById(R.id.bikeNameTV);
-            descriptionTV = view.findViewById(R.id.descriptionTV);
+            clientNameTV = view.findViewById(R.id.clientNameTV);
+            //descriptionTV = view.findViewById(R.id.descriptionTV);
         }
     }
 }

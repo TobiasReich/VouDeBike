@@ -110,10 +110,8 @@ public class FragmentBikeDetail extends Fragment implements IDataBaseWriteCallba
         colorTV.setText(bike.color);
         typeTV.setText(bike.type);
         descriptionTV.setText(bike.description);
-        editBikeButton.setOnClickListener(view ->{
-                Toast.makeText(getContext(), "EDIT", Toast.LENGTH_LONG).show();
-                setViewToEdit();
-            }
+        editBikeButton.setOnClickListener(view ->
+                setViewToEdit()
         );
     }
 

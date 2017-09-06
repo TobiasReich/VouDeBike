@@ -1,12 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="br.dayanelima.voudebike.customers.FragmentCustomersList">
 
-    <ImageView
-        android:id="@+id/imageView"
+
+    <Button
+        android:id="@+id/addClientButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/view_add_bike" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/clientsListRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:srcCompat="@drawable/ic_person" />
+        android:layout_margin="@dimen/Bike_Medium_Distance"
+        android:divider="@null" />
+
 </LinearLayout>

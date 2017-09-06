@@ -12,7 +12,7 @@
         android:layout_width="@dimen/Bike_List_Image_Size"
         android:layout_height="@dimen/Bike_List_Image_Size"
         android:visibility="visible"
-        app:srcCompat="@drawable/ic_bike" />
+        app:srcCompat="@drawable/ic_person" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,7 +21,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/bikeNameTV"
+            android:id="@+id/clientNameTV"
             style="@style/BikeListElementTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
